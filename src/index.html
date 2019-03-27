@@ -15,51 +15,47 @@
 
 <script type='text/babel'>
 
-    class Notebook extends React.Component {
+    class Notebook extends React.Component{
         constructor(props) {
             super(props);
-            this.state
-            {
-               notes: []
+            this.state = {
+                notes: []
             }
         }
 
-        //const text = 'testing'
-
-        delHandler() { //не рендерит повторно
-            //notes.splice(1, 1);
+        delHandler(){ //не рендерит повторно
 
         }
 
         changeHandler(){
-            //textInput.value = text;
-            //console.log(text)
-        }
-
-        addHandler() { //не рендерит повторно
-            //notes.push(text)
 
         }
 
-        render() { <div>
+        addHandler(){ //не рендерит повторно
+
+        }
+
+        render(){
+            return <div>
             <input type="text" onChange={this.changeHandler} name="textInput"/>
             <button onClick={this.addHandler}>Добавить</button>
+
             <ul>
                 {this.state.notes.map(note => <li>{note}
                     <button onClick={this.delHandler}>Удалить</button>
                 </li>)}
             </ul>
-        </div>
+            </div>
         }
-        //{this.state.notes.map(note => <li>{note} и удалить открывающий li строчкой выше
-        //сделать 'notes' стейтом. Обновление стейта приводит к повторному рендеру
+
+
         // забиндить обработчики событий
     }
 
     ReactDOM.render(
         <Notebook />,
         document.querySelector('#root')
-    )
+    );
 
 
 </script>
