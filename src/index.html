@@ -29,16 +29,19 @@
         }
 
         delHandler(){
-            //this.setState({notes : this.state.notes.splice(1,1)})
             this.setState({notes : this.state.notes.splice()})
+            console.log(this.state.notes)
         }
 
         changeHandler(){ //пашет, не редактировать!!!
             this.state.text = document.getElementById('textInput').value;
+            //console.log(this.state.text);
         }
 
-        addHandler(){ //не рендерит повторно
+        addHandler(){
             this.setState({notes : this.state.notes.push(this.state.text)})
+            this.setState({notes : this.state.notes})//меняем стейт чтобы перерендерилось
+            console.log(this.state.notes)
         }
 
         render(){
