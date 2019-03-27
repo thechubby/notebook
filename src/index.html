@@ -19,25 +19,31 @@
         constructor(props) {
             super(props);
             this.state = {
-                notes: []
-            }
+                notes: ['1', '2', '3', '4', '5'],
+                text : ''
+            };
+            this.addHandler = this.addHandler.bind(this);
+            this.changeHandler = this.changeHandler.bind(this);
+            this.delHandler = this.delHandler.bind(this);
+
         }
 
-        delHandler(){ //не рендерит повторно
-
+        delHandler(){
+            //this.setState({notes : this.state.notes.splice(1,1)})
+            this.setState({notes : this.state.notes.splice()})
         }
 
-        changeHandler(){
-
+        changeHandler(){ //пашет, не редактировать!!!
+            this.state.text = document.getElementById('textInput').value;
         }
 
         addHandler(){ //не рендерит повторно
-
+            this.setState({notes : this.state.notes.push(this.state.text)})
         }
 
         render(){
             return <div>
-            <input type="text" onChange={this.changeHandler} name="textInput"/>
+            <input type="text" onChange={this.changeHandler} id={"textInput"}/>
             <button onClick={this.addHandler}>Добавить</button>
 
             <ul>
