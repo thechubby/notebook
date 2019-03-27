@@ -14,16 +14,37 @@
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 
 <script type='text/babel'>
-    const notes = ['raz','dva','tri'];
 
-    const element = <ul>
-        {notes.map( note => <li>{note}</li> )}
-    </ul>;
+    const notes = ['raz','dva','tri']
+    const text = 'testing'
+
+    const delHandler = function() { //не рендерит повторно
+            notes.splice(1, 1);
+            console.log(notes)
+    }
+
+    const changeHandler = function() {
+        //textInput = text;
+        //console.log(text)
+    }
+    
+    const addHandler = function() { //не рендерит повторно
+        notes.push(text)
+        console.log(notes)
+    }
+
+    const element = <div>
+        <input type="text" onChange={changeHandler} name="textInput"/>
+        <button onClick={addHandler}>Добавить</button>
+        <ul>
+            {notes.map( note => <li>{note} <button onClick={delHandler}>Удалить</button></li>)}
+        </ul>
+    </div>
 
     ReactDOM.render(
         element,
         document.querySelector('#root')
-    );
+    )
 
 
 </script>
